@@ -1,0 +1,80 @@
+<!Doctype html>  
+<html>  
+<head>  
+        <meta http-equiv="Content-Type" content="text/html; charset-UTF-8"/>  
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>  
+                <script src="slider.js"></script>  
+        <link rel="stylesheet" href="slider.css" />  
+    </head>  
+    <body>  
+        <div class="container">  
+            <header>  
+                <div id="slider"> 				
+                    <ul class="slides">
+					<li class="slide"><img src="https://t3.ftcdn.net/jpg/03/83/64/60/360_F_383646076_TbJaoLr7PNxGFi3PF52dvnm1dtqhHtHa.jpg"/></li>
+					<li class="slide"><img src="https://www.shutterstock.com/image-vector/vector-art-saying-har-mahadev-260nw-1505813114.jpg"></li>
+					<li class="slide"><img src="https://lh3.googleusercontent.com/5lHmN2EhmzKiSlwXuH0YxexUiSS1GBtGlK4uZ10IZk_7HSWJnj0mIUj8ILJjD-3Epz_EyD5DuG5qucyCxfhEINL0=w640-h400-e365-rj-sc0x00ffffff"></li>
+					<li class="slide"><img src="https://www.shutterstock.com/image-vector/maha-shivaratri-greetings-illustration-lord-260nw-1930311380.jpg"/></li>  
+                    <li class="slide"><img src="https://t4.ftcdn.net/jpg/02/81/12/05/360_F_281120570_6DYKR8hm8VJNADWae1Zqqx9hEJbu4JC0.jpg"/></li>  
+					<li class="slide"><img src="https://www.shutterstock.com/image-vector/maha-shivaratri-greetings-illustration-lord-260nw-1930311380.jpg"/></li>  
+				</ul>  
+                </div>  
+            </header>  
+        </div>  
+    </body>  
+</html>  
+<style>
+#slider{  
+    width:900px;  
+    height:400px;  
+    margin: 10%;  
+    margin-left:15%;  
+    overflow:hidden;  
+}  
+.slides{  
+    display:block;  
+    width:6000px;  
+    height:400px;  
+    margin-left:0;  
+    padding:0;  
+}  
+.slide{  
+    float:left;  
+    list-style-type:none;  
+    width:900px;  
+    height:400px;  
+}  
+img{  
+    width:900px;  
+    height:400px;  
+}
+</style> 
+
+
+<script>
+$(function()
+{  
+    //value for animation  
+    var width = 900;  
+    var animationSpeed = 1000;  
+    var pause = 3000;  
+    var currentSlide = 1;  
+    //Dom element.   
+    var $slider = $('#slider');  
+    var $sliderAnimation = $slider.find('.slides');  
+    var $slides = $sliderAnimation.find('.slide');  
+  
+    setInterval(function()
+    {  
+         $sliderAnimation.animate({'margin-left': '-='+width}, animationSpeed, function(){  
+         currentSlide ++;  
+         if(currentSlide === $slides.length)  
+         {  
+                $sliderAnimation.css('margin-left', 0);  
+                currentSlide = 1;  
+         }  
+     });  
+    },pause);  
+});  
+</script>
